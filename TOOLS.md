@@ -1,6 +1,6 @@
 # Penpot MCP Server — Tool Reference
 
-Complete reference for all **68 tools** provided by the server.
+Complete reference for all **74 tools** provided by the server.
 
 ---
 
@@ -9,7 +9,7 @@ Complete reference for all **68 tools** provided by the server.
 1. [Projects & Teams](#1-projects--teams) (4 tools)
 2. [File Operations](#2-file-operations) (9 tools)
 3. [Shape Reading](#3-shape-reading) (6 tools)
-4. [Components & Design Tokens](#4-components--design-tokens) (4 tools)
+4. [Components & Design Tokens](#4-components--design-tokens) (10 tools)
 5. [Comments & Collaboration](#5-comments--collaboration) (6 tools)
 6. [Media & Fonts](#6-media--fonts) (3 tools)
 7. [Database & Advanced](#7-database--advanced) (3 tools)
@@ -245,12 +245,100 @@ Get all colors defined in a file's library.
 
 ---
 
+### `create_color`
+Create a native color asset in a file's local library.
+
+| Parameter | Type | Required | Description |
+|---|---|---|---|
+| `file_id` | string | Yes | The file UUID. |
+| `name` | string | Yes | Asset name within its path. |
+| `color` | string | Yes | 3- or 6-digit hexadecimal color. |
+| `opacity` | float | No | Opacity from 0 to 1; defaults to 1. |
+| `path` | string | No | Optional slash-separated asset group. |
+
+---
+
+### `update_color`
+Update or rename a native color asset while preserving unspecified fields.
+
+| Parameter | Type | Required | Description |
+|---|---|---|---|
+| `file_id` | string | Yes | The file UUID. |
+| `color_id` | string | Yes | The color asset UUID. |
+| `name` | string | No | New asset name. |
+| `color` | string | No | New 3- or 6-digit hexadecimal color. |
+| `opacity` | float | No | New opacity from 0 to 1. |
+| `path` | string | No | New asset group; use an empty string for root. |
+
+---
+
+### `delete_color`
+Delete a native color asset from a file's local library.
+
+| Parameter | Type | Required | Description |
+|---|---|---|---|
+| `file_id` | string | Yes | The file UUID. |
+| `color_id` | string | Yes | The color asset UUID. |
+
+---
+
 ### `get_typography_library`
 Get all typographies defined in a file's library.
 
 | Parameter | Type | Required | Description |
 |---|---|---|---|
 | `file_id` | string | Yes | The file UUID. |
+
+---
+
+### `create_typography`
+Create a native typography asset in a file's local library. Font metrics use Penpot's native string representation.
+
+| Parameter | Type | Required | Description |
+|---|---|---|---|
+| `file_id` | string | Yes | The file UUID. |
+| `name` | string | Yes | Asset name within its path. |
+| `font_id` | string | No | Penpot font identifier; defaults to `sourcesanspro`. |
+| `font_family` | string | No | Font family; defaults to `sourcesanspro`. |
+| `font_variant_id` | string | No | Font variant identifier; defaults to `regular`. |
+| `font_size` | string | No | Font size; defaults to `14`. |
+| `font_weight` | string | No | Font weight; defaults to `480`. |
+| `font_style` | string | No | Font style; defaults to `normal`. |
+| `line_height` | string | No | Line height; defaults to `1.2`. |
+| `letter_spacing` | string | No | Letter spacing; defaults to `0`. |
+| `text_transform` | string | No | Text transform; defaults to `none`. |
+| `path` | string | No | Optional slash-separated asset group. |
+
+---
+
+### `update_typography`
+Update or rename a native typography asset while preserving unspecified fields.
+
+| Parameter | Type | Required | Description |
+|---|---|---|---|
+| `file_id` | string | Yes | The file UUID. |
+| `typography_id` | string | Yes | The typography asset UUID. |
+| `name` | string | No | New asset name. |
+| `font_id` | string | No | New Penpot font identifier. |
+| `font_family` | string | No | New font family. |
+| `font_variant_id` | string | No | New font variant identifier. |
+| `font_size` | string | No | New font size. |
+| `font_weight` | string | No | New font weight. |
+| `font_style` | string | No | New font style. |
+| `line_height` | string | No | New line height. |
+| `letter_spacing` | string | No | New letter spacing. |
+| `text_transform` | string | No | New text transform. |
+| `path` | string | No | New asset group; use an empty string for root. |
+
+---
+
+### `delete_typography`
+Delete a native typography asset from a file's local library.
+
+| Parameter | Type | Required | Description |
+|---|---|---|---|
+| `file_id` | string | Yes | The file UUID. |
+| `typography_id` | string | Yes | The typography asset UUID. |
 
 ---
 
