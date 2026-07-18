@@ -353,7 +353,7 @@ If no popup appears and the plugin stays disconnected, check `chrome://flags/#pr
 
 ## Tools Overview
 
-The server provides **76 tools** across 13 categories. See [**TOOLS.md**](TOOLS.md) for the complete reference with all parameters.
+The server provides **77 tools** across 13 categories. See [**TOOLS.md**](TOOLS.md) for the complete reference with all parameters.
 
 | Category | Count | Examples |
 |---|---|---|
@@ -366,7 +366,7 @@ The server provides **76 tools** across 13 categories. See [**TOOLS.md**](TOOLS.
 | Database & Advanced | 3 | `query_database`, `get_webhooks`, `get_profile` |
 | Snapshots | 2 | `create_snapshot`, `get_snapshots` |
 | Export | 2 | `export_frame_png`, `export_frame_svg` |
-| Shape Creation | 8 | `create_rectangle`, `create_frame`, `create_text`, `create_path` |
+| Shape Creation | 9 | `create_rectangle`, `create_frame`, `create_text`, `create_path`, `create_component_instance` |
 | Shape Modification | 12 | `set_fill`, `set_stroke`, `set_layout`, `move_shape`, `resize_shape` |
 | Text Operations | 5 | `set_text_content`, `set_font`, `set_font_size`, `set_text_align` |
 | Advanced Analysis | 2 | `get_file_raw_data`, `compare_revisions` |

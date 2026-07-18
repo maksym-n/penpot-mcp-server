@@ -1,6 +1,6 @@
 # Penpot MCP Server — Tool Reference
 
-Complete reference for all **76 tools** provided by the server.
+Complete reference for all **77 tools** provided by the server.
 
 ---
 
@@ -16,7 +16,7 @@ Complete reference for all **76 tools** provided by the server.
 8. [Snapshots](#8-snapshots) (2 tools)
 9. [Export](#9-export) (2 tools)
 10. [Advanced Analysis](#10-advanced-analysis) (2 tools)
-11. [Shape Creation](#11-shape-creation) (8 tools)
+11. [Shape Creation](#11-shape-creation) (9 tools)
 12. [Shape Modification](#12-shape-modification) (12 tools)
 13. [Text Operations](#13-text-operations) (5 tools)
 
@@ -696,6 +696,20 @@ Convert a shape/frame into a reusable component.
 | `page_id` | string | Yes | The page UUID. |
 | `shape_id` | string | Yes | The shape UUID to convert. |
 | `name` | string | No | Component name (keeps current name if omitted). |
+
+---
+
+### `create_component_instance`
+Instantiate a component (place it on the canvas).
+
+| Parameter | Type | Required | Default | Description |
+|---|---|---|---|---|
+| `file_id` | string | Yes | — | The file UUID. |
+| `page_id` | string | Yes | — | The page UUID. |
+| `component_id` | string | Yes | — | The component asset UUID to instantiate. |
+| `x` | float | Yes | — | X coordinate for the instance. |
+| `y` | float | Yes | — | Y coordinate for the instance. |
+| `parent_id` | string | No | — | Optional parent frame/group UUID. |
 
 ---
 

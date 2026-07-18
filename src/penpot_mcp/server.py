@@ -1267,6 +1267,32 @@ async def create_component(
 
 
 @mcp.tool()
+async def create_component_instance(
+    file_id: str,
+    page_id: str,
+    component_id: str,
+    x: float,
+    y: float,
+    parent_id: str | None = None,
+) -> str:
+    """Instantiate a component (place it on the canvas).
+
+    Args:
+        file_id: The file UUID.
+        page_id: The page UUID.
+        component_id: The component asset UUID to instantiate.
+        x: X coordinate for the instance.
+        y: Y coordinate for the instance.
+        parent_id: Optional parent frame/group UUID.
+    """
+    from penpot_mcp.tools.create import create_component_instance as _create
+
+    result = await _create(file_id, page_id, component_id, x, y, parent_id)
+    return json.dumps(result, indent=2, default=str)
+
+
+
+@mcp.tool()
 async def create_page(file_id: str, name: str = "New Page") -> str:
     """Add a new page to a file.
 
