@@ -353,14 +353,14 @@ If no popup appears and the plugin stays disconnected, check `chrome://flags/#pr
 
 ## Tools Overview
 
-The server provides **74 tools** across 13 categories. See [**TOOLS.md**](TOOLS.md) for the complete reference with all parameters.
+The server provides **76 tools** across 13 categories. See [**TOOLS.md**](TOOLS.md) for the complete reference with all parameters.
 
 | Category | Count | Examples |
 |---|---|---|
 | Projects & Teams | 4 | `list_projects`, `list_teams`, `list_files`, `search_files` |
 | File Operations | 9 | `create_file`, `get_file_pages`, `rename_file`, `duplicate_file` |
 | Shape Reading | 6 | `get_shape_tree`, `get_shape_details`, `get_shape_css`, `search_shapes` |
-| Components & Tokens | 10 | `create_color`, `update_color`, `create_typography`, `update_typography` |
+| Components & Tokens | 12 | `create_color`, `update_color`, `apply_design_token`, `auto_bind_library_tokens` |
 | Comments | 6 | `create_comment`, `reply_to_comment`, `resolve_comment` |
 | Media & Fonts | 3 | `upload_media`, `list_media_assets`, `list_fonts` |
 | Database & Advanced | 3 | `query_database`, `get_webhooks`, `get_profile` |

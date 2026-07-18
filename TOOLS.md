@@ -1,6 +1,6 @@
 # Penpot MCP Server — Tool Reference
 
-Complete reference for all **74 tools** provided by the server.
+Complete reference for all **76 tools** provided by the server.
 
 ---
 
@@ -9,7 +9,7 @@ Complete reference for all **74 tools** provided by the server.
 1. [Projects & Teams](#1-projects--teams) (4 tools)
 2. [File Operations](#2-file-operations) (9 tools)
 3. [Shape Reading](#3-shape-reading) (6 tools)
-4. [Components & Design Tokens](#4-components--design-tokens) (10 tools)
+4. [Components & Design Tokens](#4-components--design-tokens) (12 tools)
 5. [Comments & Collaboration](#5-comments--collaboration) (6 tools)
 6. [Media & Fonts](#6-media--fonts) (3 tools)
 7. [Database & Advanced](#7-database--advanced) (3 tools)
@@ -246,15 +246,16 @@ Get all colors defined in a file's library.
 ---
 
 ### `create_color`
-Create a native color asset in a file's local library.
+Create a native color asset (solid or gradient) in a file's local library.
 
 | Parameter | Type | Required | Description |
 |---|---|---|---|
 | `file_id` | string | Yes | The file UUID. |
 | `name` | string | Yes | Asset name within its path. |
-| `color` | string | Yes | 3- or 6-digit hexadecimal color. |
+| `color` | string | No | 3- or 6-digit hexadecimal color. |
 | `opacity` | float | No | Opacity from 0 to 1; defaults to 1. |
 | `path` | string | No | Optional slash-separated asset group. |
+| `gradient` | object | No | Optional gradient dictionary containing type (linear/radial) and stops. |
 
 ---
 
@@ -269,6 +270,7 @@ Update or rename a native color asset while preserving unspecified fields.
 | `color` | string | No | New 3- or 6-digit hexadecimal color. |
 | `opacity` | float | No | New opacity from 0 to 1. |
 | `path` | string | No | New asset group; use an empty string for root. |
+| `gradient` | object | No | Optional new gradient dictionary containing type (linear/radial) and stops. |
 
 ---
 
@@ -339,6 +341,31 @@ Delete a native typography asset from a file's local library.
 |---|---|---|---|
 | `file_id` | string | Yes | The file UUID. |
 | `typography_id` | string | Yes | The typography asset UUID. |
+
+---
+
+### `apply_design_token`
+Apply a design token (color asset or typography asset) to a list of shapes.
+
+| Parameter | Type | Required | Description |
+|---|---|---|---|
+| `file_id` | string | Yes | The file UUID. |
+| `page_id` | string | Yes | The page UUID containing the shapes. |
+| `shape_ids` | array | Yes | List of shape UUIDs to modify. |
+| `token_id` | string | Yes | The UUID of the color or typography library token. |
+| `token_type` | string | Yes | Token type - "color" or "typography". |
+| `target_property` | string | No | Target property - "fill" or "stroke" (applies only to color tokens; defaults to "fill"). |
+
+---
+
+### `auto_bind_library_tokens`
+Automatically search shape styles/colors and bind matching library assets (color or typography tokens).
+
+| Parameter | Type | Required | Description |
+|---|---|---|---|
+| `file_id` | string | Yes | The file UUID. |
+| `page_id` | string | Yes | The page UUID to process. |
+| `shape_ids` | array | No | Optional list of shape UUIDs. If omitted, binds all shapes on the page. |
 
 ---
 
